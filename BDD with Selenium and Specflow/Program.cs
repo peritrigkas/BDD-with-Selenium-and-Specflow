@@ -78,6 +78,34 @@ namespace BDD_with_Selenium_and_Specflow
             triangle_base = par1;
             triangle_height = par2;
         }
+
+        
+
+        
+    }
+    public interface INterface1
+    {
+        void Display(string str);
+        void Display(string str1, string str2);
+    }
+
+    public interface INterface2
+    {
+        void Display(string str);
+        void Display(string str1, string str2);
+    }
+
+    public class DerivedClassOne : INterface1, INterface2
+    {
+        public void Display(string str)
+        {
+            Console.WriteLine(str);
+        }
+
+        public void Display(string str1, string str2)
+        {
+            Console.WriteLine("{0} : {1}", str1, str2);
+        }
     }
 
     class Program
@@ -115,7 +143,13 @@ namespace BDD_with_Selenium_and_Specflow
             //derived.GetInt();
 
             ////// Inheritance ///////////
+            //     Interface    //
+            INterface1 obj1 = new DerivedClassOne();
 
+            obj1.Display("pERI");
+            obj1.Display("paok", "chris");
+
+            INterface2 obj2 = new DerivedClassOne();
 
             derived.GetFromBaseClass();
             //Console.WriteLine("The Triangle area is : {0}", triangle1.GetTriangleArea());
