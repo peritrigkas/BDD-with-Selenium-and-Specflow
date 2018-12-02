@@ -12,6 +12,35 @@ namespace BDD_with_Selenium_and_Specflow
         public int triangle_base;
         public int triangle_height;
 
+        public static int staticint;
+
+        // Static methode rules :
+        // 1. can access only static methods
+        // 2. can access only static variables
+
+        public static void SetStaticValue(int par1)
+        {
+            staticint = par1;
+        }
+
+        public static void GetStaticValue()
+        {
+            // SetValue() cannot be accessed because its not static
+            SetStaticValue(120);
+            Console.WriteLine("Static Value is : {0}", staticint);
+        }
+
+
+        public void SetValue(int par1)
+        {
+            staticint = par1;
+        }
+
+        public void GetStatic()
+        {
+            Console.WriteLine("Static Value is : {0}", staticint);
+        }
+
         // <access specifier> <name of the construcor> (<parameter>){}
         // 1. Constructor do not have return type
         // 2. Name of Constructor should be same as the class
@@ -53,12 +82,12 @@ namespace BDD_with_Selenium_and_Specflow
 
     class Program
     {
-        static void Main(string[] args)
+              static void Main(string[] args)
         {
             //<class name> <obj name> = new < class name>
-            Triangle triangle1 = new Triangle(10, 20);
-            Triangle triangle2 = new Triangle(100,200);
-
+            //Triangle triangle1 = new Triangle(10, 20);
+            //Triangle triangle2 = new Triangle(100,200);
+                       
             //triangle1.triangle_base = 10;
             //triangle1.triangle_height = 20;
 
@@ -68,11 +97,28 @@ namespace BDD_with_Selenium_and_Specflow
             //triangle1.GetArea();
             //triangle2.GetArea();
 
-            triangle1.SetValue(4, 10);
-            triangle2.SetValue(100, 200);
+            //triangle1.SetValue(4, 10);
+            //triangle2.SetValue(100, 200);
 
-            Console.WriteLine("The Triangle area is : {0}", triangle1.GetTriangleArea());
-            Console.WriteLine("The Triangle area is : {0}", triangle2.GetTriangleArea());
+            //triangle1.SetValue(123);
+
+            //Triangle.staticint = 10;
+            //triangle2.GetStatic();
+
+            //Triangle.GetStaticValue();
+
+            ////// Inheritance ///////////
+
+            DerivedClass derived = new DerivedClass(20); // Constructor example
+            //derived.Show(); // 
+            
+            //derived.GetInt();
+
+            ////// Inheritance ///////////
+            
+
+            //Console.WriteLine("The Triangle area is : {0}", triangle1.GetTriangleArea());
+            //Console.WriteLine("The Triangle area is : {0}", triangle2.GetTriangleArea());
 
             Console.ReadKey();
         }
