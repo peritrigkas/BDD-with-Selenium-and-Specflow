@@ -110,13 +110,14 @@ namespace BDD_with_Selenium_and_Specflow
             ////// Inheritance ///////////
 
             DerivedClass derived = new DerivedClass(20); // Constructor example
-            //derived.Show(); // 
-            
+                                                         //derived.Show(); // 
+
             //derived.GetInt();
 
             ////// Inheritance ///////////
-            
 
+
+            derived.GetFromBaseClass();
             //Console.WriteLine("The Triangle area is : {0}", triangle1.GetTriangleArea());
             //Console.WriteLine("The Triangle area is : {0}", triangle2.GetTriangleArea());
 
